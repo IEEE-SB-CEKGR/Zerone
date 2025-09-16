@@ -30,10 +30,9 @@
 </head>
 <body>
   <button onclick="playMorse()">Play</button>
-  <button onclick="downloadMorse()">Download</button>
 
   <script>
-    const morse = ".... / ...-- ...-- ----- .----";
+    const morse = "...-- ...-- ----- .----"; // Correct Morse for 3301
 
     function playMorse() {
       const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -56,14 +55,6 @@
         else if (ch === "-") tone(0.3);
         else time += 0.2;
       });
-    }
-
-    function downloadMorse() {
-      const blob = new Blob([morse], { type: "text/plain" });
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(blob);
-      link.download = "hello.txt";
-      link.click();
     }
   </script>
 </body>
